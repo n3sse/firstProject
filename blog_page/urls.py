@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from .views import BlogPageView
+from .views import HomePageView, BlogPageView, PostDetailView
 urlpatterns = [
-    url(r'^$', BlogPageView.as_view()),
-
+    url(r'^$', HomePageView.as_view()),
+    url(r'^(?P<pk>[0-9]+)/$', PostDetailView.as_view()),
+    url(r'^blog/$', BlogPageView.as_view()),
 ]
