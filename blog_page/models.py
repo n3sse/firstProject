@@ -17,6 +17,7 @@ class Author(models.Model):
     author_id = models.AutoField(primary_key=True)
     author_name = models.CharField(max_length=64)
     author_mail = models.EmailField()
+    author_content = models.TextField(default=" ", max_length=600)
 
     class Meta:
         verbose_name_plural = "Authors"
