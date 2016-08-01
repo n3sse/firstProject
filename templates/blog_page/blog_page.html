@@ -1,19 +1,46 @@
 {% extends 'base.html' %}
 
 {% block body_block %}
-    <div class="thumbnailsBlock">
-        {% for post in posts %}
-
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3> {{ post.post_title }} </h3>
-                        <p> {{ post.post_content|slice:"0:600" }}... </p>
-                        <p><a href="{{ post.pk }}" class="btn btn-primary" role="button">Read more</a></p>
+    <div class="container">
+        {% if post_list %}
+            <div class="thumbnailsBlock">
+                {% for post in post_list %}
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3> {{ post.post_title }} </h3>
+                                <p> {{ post.post_content|slice:"0:600" }}... </p>
+                                <p><a href="{{ post.pk }}" class="btn btn-primary" role="button">Read more</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
+            <br/>
 
-        {% endfor %}
-    </div>
+            </div>
+            {% if is_paginated %}
+
+                <div class="pagination">
+                 <span class="page-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}"> Previous page - </a>
+                    {% endif %}
+
+                     <span class="page-current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                     </span>
+
+                     {% if page_obj.has_next %}
+                         <a href="?page={{ page_obj.next_page_number }}"> - Next page </a>
+                     {% endif %}
+                </span>
+                </div>
+
+            {% endif %}
+
+        {% else %}
+            <h3> No posts found! </h3>
+        {% endif %}
+
 {% endblock %}
