@@ -1,5 +1,12 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 
 {% block body_block %}
-    <h1> Contact Page</h1>
+    <h1>Contact Form </h1>
+
+    <form class="form-horizontal" action="/contact/" method="post">
+        {% csrf_token %}
+        {% include 'contact_page/contact_form.html' %}
+        <input type="submit" value="Send!">
+    </form>
+
 {% endblock %}

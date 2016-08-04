@@ -3,12 +3,14 @@
 {% block body_block %}
 
     <div class="container">
-        <h2>Newest</h2>
-        <hr>
+
         {% if recent_post %}
-            <div class="thumbnailsBlock">
-                {% for post in recent_post %}
-                    <div class="col-sm-6 col-md-4">
+            <div class="col-md-8">
+                <h2>Newest</h2>
+                <hr>
+                <div class="thumbnailsBlock">
+                    {% for post in recent_post %}
+
                         <div class="thumbnail">
                             <div class="caption">
                                 <div class="thumbnailPostTitle">
@@ -28,40 +30,39 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
+                <div class="showMoreButton">
+                    <a href="/blog">Show more</a>
+                </div>
             </div>
+
         {% else %}
             <h1>There is no posts.</h1>
         {% endif %}
-        <div class="showMoreButton">
-            <a href="/blog">Show more</a>
-        </div>
-        <hr>
-        <br/><br/>
-        <h2>Authors</h2>
-        <hr>
-    <div class=.col-md-3 .col-md-offset-3>
-        {% if authors %}
-            {% for author in authors %}
-                <div class=col-sm-6 col-md-4>
+
+
+        <div class="col-md-3 col-md-offset-1">
+            <h2>Authors</h2>
+            <hr>
+            {% if authors %}
+                {% for author in authors %}
                     <div class="thumbnail">
                         <div class="caption">
                             <div class="thumbnailAuthorTitle">
-                                <h3> Hi! <br /> My name is {{ author.author_name }}. </h3>
+                                <h3> Hi! <br/> My name is {{ author.author_name }}. </h3>
                             </div>
                             <div class="thumbnailAuthorContent">
                                 <p> {{ author.author_content }} </p>
                                 <div class="thumbnailAuthorButton">
-                                        <a href="#">Contact me!</a>
+                                    <a href="/contact">Contact me!</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 
-                </div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    </div>
 {% endblock %}

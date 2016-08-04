@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class AboutPageConfig(AppConfig):
-    name = 'authors_page'
+    name = 'contact_page'

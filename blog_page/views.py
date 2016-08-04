@@ -6,7 +6,7 @@ class HomePageView(TemplateView):
     """ HomePageView as the name says,
     it returns a view for index page.
     It contains three newest Posts
-    and authors which are making this page."""
+    and authors which are making this page. """
     template_name = "blog_page/index.html"
 
     def get_context_data(self, **kwargs):
