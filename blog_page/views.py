@@ -11,7 +11,7 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
-        context['recent_post'] = Post.objects.all()[:3]
+        context['recent_post'] = Post.objects.all()[:5]
         context['authors'] = Author.objects.all()
         return context
 

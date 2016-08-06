@@ -3,18 +3,21 @@
 {% block body_block %}
 
     <div class="container">
-
+        <div class="bodyBlock">
         {% if recent_post %}
-            <div class="col-md-8">
+            <div class="col-md-8 col-md-offset-2">
                 <h2>Newest</h2>
                 <hr>
                 <div class="thumbnailsBlock">
                     {% for post in recent_post %}
-
                         <div class="thumbnail">
                             <div class="caption">
                                 <div class="thumbnailPostTitle">
-                                    <h3> {{ post.post_title }} </h3>
+                                    <h3>{{ post.post_title }}</h3>
+                                </div>
+                                <div class="thumbnailPostHeader">
+                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <small>{{ post.post_date|date:"Y-m-d" }}</small>
+                                    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <small>{{ post.post_category }}</small>
                                 </div>
                                 <hr>
                                 <div class="thumbnailPostContent">
@@ -23,11 +26,8 @@
                                         <a href="{{ post.pk }}">Read more</a>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="thumbnailPostFooter">
-                                    <small>
-                                        {{ "posted by " }}{{ post.post_author }}{{ " at " }}{{ post.post_date|date:"DATE_FORMAT" }}</small>
-                                </div>
+
+
                             </div>
                         </div>
                     {% endfor %}
@@ -40,28 +40,6 @@
         {% else %}
             <h1>There is no posts.</h1>
         {% endif %}
-
-
-        <div class="col-md-3 col-md-offset-1">
-            <h2>Authors</h2>
-            <hr>
-            {% if authors %}
-                {% for author in authors %}
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <div class="thumbnailAuthorTitle">
-                                <h3> Hi! <br/> My name is {{ author.author_name }}. </h3>
-                            </div>
-                            <div class="thumbnailAuthorContent">
-                                <p> {{ author.author_content }} </p>
-                                <div class="thumbnailAuthorButton">
-                                    <a href="/contact">Contact me!</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
         </div>
     </div>
 

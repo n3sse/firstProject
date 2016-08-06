@@ -1,27 +1,55 @@
-.container > h2 {
+header > h1 {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.bodyBlock {
+    margin-top: 5%;
+}
+
+.thumbnailPostTitle, .detailPostTitle {
     text-align: center;
     font-style: italic;
+    font-family: bold;
 }
 
+.detailPostTitle {
+    margin-top: 10%;
+}
+.thumbnailPostContent, .detailPostContent {
+    font-family: bold;
+}
+
+.thumbnailPostHeader {
+    font-family: bold;
+}
+
+.thumbnailPostButton, .detailPostFooter {
+    text-align: right;
+    margin-right: 5%;
+}
+
+.detailPostFooter {
+    font-family: bold;
+}
+
+.thumbnailPostFooter {
+    text-align: right;
+}
 .thumbnail {
-    padding: 1em;
+    margin-top: 3%;
 }
-.thumbnailPostTitle, .thumbnailAuthorTitle  {
+h2 {
     text-align: center;
-}
 
-.thumbnailPostButton, .thumbnailAuthorButton {
-    text-align: center;
 }
 
 .showMoreButton {
     text-align: center;
-}
-
-.showMoreButton > a {
     font-size: 20px;
+    margin-bottom: 5%;
 }
 
-h2 {
+.paginationButton {
     text-align: center;
 }

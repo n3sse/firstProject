@@ -2,17 +2,20 @@
 
 {% block body_block %}
     <div class="col-md-6 col-md-offset-3">
-        <div class="post_title">
+        <div class="detailPostTitle">
             <h3>{{ post.post_title }} </h3>
         </div>
         <hr>
-        <div class="post_content">
+        <div class="detailPostContent">
             <p>{{ post.post_content }}</p>
 
         </div>
         <hr>
-        <div class="post_footer">
-            {{ "posted by " }}{{ post.post_author }}{{ " at " }}{{ post.post_date|date:"DATE_FORMAT" }}
+
+        <div class="detailPostFooter">
+            {{ "posted by " }}<a href="/contact">{{ post.post_author }}</a>{{ " at " }}{{ post.post_date|date:"DATE_FORMAT" }}
         </div>
+
+        <a href="/">Back to previous</a>
     </div>
 {% endblock %}
